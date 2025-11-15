@@ -27,7 +27,7 @@ services:
     networks:
       - labnet
     ports:
-      - "2222:22"   # opcional: mapear puerto para acceder desde el host si lo deseas
+      - "2222:22"  # mapear puerto para acceder desde el host
     tty: true
 
 networks:
