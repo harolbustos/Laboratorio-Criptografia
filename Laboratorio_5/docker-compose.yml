@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  c1:
+    build: ./c1
+    container_name: lab_c1
+    networks:
+      - labnet
+    tty: true
+
+  c2:
+    build: ./c2
+    container_name: lab_c2
+    networks:
+      - labnet
+    tty: true
+
+  c3:
+    build: ./c3
+    container_name: lab_c3
+    networks:
+      - labnet
+    tty: true
+
+  c4:
+    build: ./c4
+    container_name: lab_c4
+    networks:
+      - labnet
+    ports:
+      - "2222:22"   # opcional: mapear puerto para acceder desde el host si lo deseas
+    tty: true
+
+networks:
+  labnet:
+    driver: bridge
