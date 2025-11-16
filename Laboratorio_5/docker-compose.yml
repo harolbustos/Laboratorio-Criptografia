@@ -1,35 +1,35 @@
-version: "3.8"
+version: '3.8'
+
 services:
   c1:
     build: ./c1
-    container_name: lab_c1
+    container_name: c1
+    tty: true # mantiene el contenedor corriendo
     networks:
-      - labnet
-    tty: true
+      - lab-ssh-net
 
   c2:
     build: ./c2
-    container_name: lab_c2
+    container_name: c2
+    tty: true # mantiene el contenedor corriendo
     networks:
-      - labnet
-    tty: true
+      - lab-ssh-net
 
   c3:
     build: ./c3
-    container_name: lab_c3
+    container_name: c3
+    tty: true # mantiene el contenedor corriendo
     networks:
-      - labnet
-    tty: true
+      - lab-ssh-net
 
-  c4:
+  s1: # Este contenedor es C4 y S1 
     build: ./c4
-    container_name: lab_c4
+    container_name: s1
+    hostname: s1
+    tty: true # mantiene el contenedor corriendo
     networks:
-      - labnet
-    ports:
-      - "2222:22"  # mapear puerto para acceder desde el host
-    tty: true
+      - lab-ssh-net
 
 networks:
-  labnet:
+  lab-ssh-net:
     driver: bridge
